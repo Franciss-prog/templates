@@ -35,19 +35,19 @@ Base scaffold in place (SvelteKit, Tailwind v4, lint/format/test tooling, Vercel
 
 ```bash
 cd sveltekit
-npm install   # or bun install
+bun install
 cp .env.example .env   # once auth/DB land — fill DATABASE_URL + auth secrets
-npm run dev
+bun run dev
 ```
 
 ### Scripts
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | start dev server |
-| `npm run build` | production build |
-| `npm run preview` | preview production build |
-| `npm run check` | type-check (svelte-check) |
-| `npm run lint` | prettier + eslint check |
-| `npm run format` | prettier write |
-| `npm run test` | run unit tests once |
+| `bun run dev` | start dev server |
+| `bun run build` | production build |
+| `bun run preview` | preview production build |
+| `bun run check` | type-check (svelte-check) |
+| `bun run lint` | prettier + eslint check |
+| `bun run format` | prettier write |
+| `bun run test` | run unit tests once |
