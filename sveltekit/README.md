@@ -1,42 +1,48 @@
-# sv
+# sveltekit — Auth-Ready SaaS Starter
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Drop-in SvelteKit starter for SaaS projects. Goal: clone it, fill `.env`, start building features — no auth wiring, no boilerplate.
 
-## Creating a project
+## Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- SvelteKit 2 + Svelte 5
+- TailwindCSS v4 (`@tailwindcss/vite`, forms + typography plugins)
+- TypeScript
+- ESLint + Prettier (with Svelte/Tailwind plugins)
+- Vitest (unit + browser via Playwright)
+- `adapter-vercel` — deploy-ready out of the box
 
-```sh
-# create a new project
-npx sv create my-app
+## Status
+
+Base scaffold in place (SvelteKit, Tailwind v4, lint/format/test tooling, Vercel adapter). Auth and DB layer not wired yet.
+
+## Roadmap
+
+- [ ] Auth system (working out of the box)
+- [ ] NeonDB integration + connection config (`DATABASE_URL`)
+- [ ] Database schema for users/auth
+- [ ] Protected routes + session handling
+- [ ] Env-based config (`DATABASE_URL`, auth secrets, ...)
+- [ ] OAuth providers (Google, GitHub) — optional
+- [ ] Email/password auth toggle — optional
+- [ ] Basic dashboard layout — optional
+- [ ] Example CRUD module — optional
+
+## Getting started
+
+```bash
+bun install
+cp .env.example .env   # once auth/DB land — fill DATABASE_URL + auth secrets
+bun run dev
 ```
 
-To recreate this project with the same configuration:
+## Scripts
 
-```sh
-# recreate this project
-bun x sv@0.16.6 create --template minimal --types ts --add prettier eslint vitest="usages:unit,component" tailwindcss="plugins:typography,forms" sveltekit-adapter="adapter:vercel" --install bun .
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+| Command           | What it does              |
+| ----------------- | ------------------------- |
+| `bun run dev`     | start dev server          |
+| `bun run build`   | production build          |
+| `bun run preview` | preview production build  |
+| `bun run check`   | type-check (svelte-check) |
+| `bun run lint`    | prettier + eslint check   |
+| `bun run format`  | prettier write            |
+| `bun run test`    | run unit tests once       |
